@@ -95,6 +95,11 @@ const TRANSLATIONS = {
     "follow.star": "⭐ Star le projet",
     "follow.github": "Suivre sur GitHub",
     "follow.later": "Plus tard",
+    "footer.share": "🔗 Partager",
+    "share.title": "Partager SynthAZERTY",
+    "share.text": "Découvre SynthAZERTY : un nouvel instrument de musique dans ton navigateur — synthé AZERTY, oscilloscope & mode Guitar Hero !",
+    "share.copy": "Copier",
+    "share.copied": "Copié !",
   },
 
   en: {
@@ -187,6 +192,11 @@ const TRANSLATIONS = {
     "follow.star": "⭐ Star the project",
     "follow.github": "Follow on GitHub",
     "follow.later": "Maybe later",
+    "footer.share": "🔗 Share",
+    "share.title": "Share SynthAZERTY",
+    "share.text": "Check out SynthAZERTY: a new musical instrument in your browser — AZERTY synth, oscilloscope & Guitar Hero mode!",
+    "share.copy": "Copy",
+    "share.copied": "Copied!",
   },
 
   es: {
@@ -279,6 +289,11 @@ const TRANSLATIONS = {
     "follow.star": "⭐ Estrella el proyecto",
     "follow.github": "Seguir en GitHub",
     "follow.later": "Más tarde",
+    "footer.share": "🔗 Compartir",
+    "share.title": "Comparte SynthAZERTY",
+    "share.text": "Descubre SynthAZERTY: un nuevo instrumento musical en tu navegador — sinte AZERTY, osciloscopio y modo Guitar Hero.",
+    "share.copy": "Copiar",
+    "share.copied": "¡Copiado!",
   },
 
   de: {
@@ -371,6 +386,11 @@ const TRANSLATIONS = {
     "follow.star": "⭐ Projekt mit Stern",
     "follow.github": "Auf GitHub folgen",
     "follow.later": "Später",
+    "footer.share": "🔗 Teilen",
+    "share.title": "SynthAZERTY teilen",
+    "share.text": "Entdecke SynthAZERTY: ein neues Musikinstrument im Browser — AZERTY-Synth, Oszilloskop & Guitar-Hero-Modus!",
+    "share.copy": "Kopieren",
+    "share.copied": "Kopiert!",
   },
 };
 

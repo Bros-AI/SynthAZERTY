@@ -311,7 +311,7 @@ kbd {
 .footer-follow:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(52,224,196,0.35); }
 
 /* ---------- Modale Follow ---------- */
-.follow-card { max-width: 440px; position: relative; }
+.follow-card { max-width: 440px; position: relative; max-height: 92vh; overflow-y: auto; }
 .follow-close {
   position: absolute; top: 12px; right: 14px;
   background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer;
@@ -342,9 +342,51 @@ kbd {
 .follow-later {
   background: none; border: 1px solid var(--line); color: var(--muted);
   border-radius: 10px; padding: 9px 18px; font: inherit; font-size: 0.85rem; cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.15s; margin-top: 4px;
 }
-.follow-later:hover { color: var(--text); border-color: var(--border-light, var(--accent)); }
+.follow-later:hover { color: var(--text); border-color: var(--accent); }
+
+/* divider */
+.follow-divider {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 1.5px;
+  margin: 4px 0 14px;
+}
+.follow-divider::before, .follow-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+
+/* boutons de partage */
+.share-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+.share-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 11px 4px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--panel-2); color: var(--muted); text-decoration: none;
+  font-size: 0.68rem; font-weight: 600; transition: all 0.15s;
+}
+.share-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.share-btn:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+.share-copy-row { display: flex; gap: 8px; }
+.share-copy-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 12px; font: inherit; font-size: 0.78rem; color: var(--muted); outline: none;
+}
+.share-copy-input:focus { border-color: var(--accent); }
+.share-copy-btn {
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 16px; font: inherit; font-size: 0.8rem; font-weight: 600; color: var(--text);
+  cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.share-copy-btn:hover { border-color: var(--accent); }
+.share-copy-btn.copied { color: var(--accent); border-color: var(--accent); }
+
+/* bouton Partager du footer */
+.footer-share {
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--text);
+  border-radius: 999px; padding: 7px 16px; font: inherit; font-weight: 600; font-size: 0.82rem;
+  cursor: pointer; transition: all 0.15s;
+}
+.footer-share:hover { border-color: var(--accent); transform: translateY(-1px); }
 
 /* ---------- Overlay résultats ---------- */
 .overlay {

@@ -860,12 +860,15 @@ const UI = {
    ========================================================================= */
 const Follow = {
   key: "synthazerty.followShown",
+  URL: "https://bros-ai.github.io/SynthAZERTY/",
   overlay: null,
   init() {
     this.overlay = document.getElementById("followOverlay");
     document.getElementById("openFollow").addEventListener("click", () => this.open());
+    document.getElementById("openShare").addEventListener("click", () => this.open());
     document.getElementById("followClose").addEventListener("click", () => this.close());
     document.getElementById("followLater").addEventListener("click", () => this.close());
+    document.getElementById("shareCopyBtn").addEventListener("click", () => this.copy());
     this.overlay.addEventListener("click", (e) => { if (e.target === this.overlay) this.close(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.close(); });
     // Auto-affichage une seule fois par session, après que l'utilisateur ait pu jouer un peu
@@ -873,7 +876,31 @@ const Follow = {
       setTimeout(() => { this.open(); sessionStorage.setItem(this.key, "1"); }, 20000);
     }
   },
-  open() { this.overlay.classList.remove("hidden"); },
+  setShareLinks() {
+    const url = encodeURIComponent(this.URL);
+    const text = encodeURIComponent(I18N.t("share.text"));
+    const title = encodeURIComponent("SynthAZERTY");
+    const set = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
+    set("shareX", `https://x.com/intent/tweet?text=${text}&url=${url}`);
+    set("shareLinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${url}`);
+    set("shareReddit", `https://www.reddit.com/submit?url=${url}&title=${title}`);
+    set("shareEmail", `mailto:?subject=${title}&body=${text}%0A%0A${url}`);
+  },
+  copy() {
+    const done = () => {
+      const btn = document.getElementById("shareCopyBtn");
+      btn.textContent = I18N.t("share.copied"); btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = I18N.t("share.copy"); btn.classList.remove("copied"); }, 2000);
+    };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.URL).then(done).catch(() => this.copyFallback());
+    } else { this.copyFallback(); }
+  },
+  copyFallback() {
+    const inp = document.getElementById("shareCopyInput");
+    inp.select(); try { document.execCommand("copy"); } catch {}
+  },
+  open() { this.setShareLinks(); this.overlay.classList.remove("hidden"); },
   close() { this.overlay.classList.add("hidden"); },
 };
 
